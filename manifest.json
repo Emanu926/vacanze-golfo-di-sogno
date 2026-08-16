@@ -1,7 +1,7 @@
 {
     "name": "Vacanze Ema & Stefy",
     "short_name": "E & S",
-    "description": "App personale per le vacanze in Costa Azzurra",
+    "description": "App personale per le vacanze in Corsica",
     "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#0077B6",

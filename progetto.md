@@ -5,18 +5,24 @@
 - Cane: **Bibi**, cucciolo di Bulldog francese (viene sempre in vacanza)
 - Stile di vacanza: relax totale, niente stress, niente folla — soprattutto Stefy ha bisogno di staccare completamente
 
-## Vacanza 2026 — Costa Azzurra
-- **Dove**: Les Issambres (tra Sainte-Maxime e Saint-Raphaël, vicino a Saint-Tropez)
-- **Casa**: Villa Goonie — 80 Av. de la Vigie, 83380 Les Issambres. Proprietario: François. Piscina e vista mare, affittata interamente.
-- **Quando**: 27 giugno — 8 luglio 2026
-- **Partenza da**: Castronno (VA) — tutto in una volta in auto
+## Vacanza 2026 — Corsica, Golfo di Sogno
+- **Dove**: Golfo di Sogno, frazione di Porto-Vecchio (Corse-du-Sud) — sulla strada tra la Trinité e Cala Rossa
+- **Casa**: da definire — indirizzo esatto e contatto dell'affittuario ancora da aggiungere (campo editabile in-app)
+- **Quando**: partenza 28 agosto, soggiorno di almeno 2 settimane — rientro non ancora deciso
+- **Partenza da**: Castronno (VA) in auto fino a Nizza, poi traghetto per Porto-Vecchio
 - **Auto**: Land Rover Discovery Sport
 
+## Tragitto e traghetto
+- **Auto**: Castronno → Nizza, ~370 km, ~3h45 di guida senza soste (via A26/A10 fino al confine, poi A8 francese). In agosto, weekend di partenza, mettere in conto traffico: consigliati **45–60 minuti di margine** oltre al tempo di guida puro.
+- **Traghetto**: Corsica Ferries, Nizza → Porto-Vecchio, **venerdì 28/8**. Orario indicativo **22:30** (l'utente ha in mente "le 22" — **verificare l'orario esatto sulla prenotazione**, la app segnala la discrepanza).
+- **Durata crossing**: ~12h30–13h, arrivo stimato **sabato 29/8 mattina**.
+- **Imbarco auto**: Port de Commerce, Terminal 1, 06300 Nice. Presentarsi con **1h30–2h di anticipo** sull'orario di partenza per il check-in e l'imbarco del veicolo.
+- **Partenza consigliata da Castronno**: nel primo pomeriggio di venerdì 28/8 (indicativamente 15:00–16:00), per arrivare al porto con margine reale considerando guida + traffico + check-in. Il countdown nell'app (`state.departure` in `app.js`) è impostato su questa base e va aggiustato se cambiano i piani.
+
 ## Come passiamo il tempo
-- Gran parte del tempo in villa, in piscina
-- Spiaggia pochissimo (cane + preferenza per la piscina)
-- Ci si muove poco, zona già conosciuta
-- Non si fanno attività impegnative
+- Spiaggia di Golfo di Sogno proprio sotto casa (accesso tramite il camping omonimo)
+- Spostamenti verso le spiagge più note della zona (Cala Rossa, Palombaggia, Santa Giulia)
+- Zona nuova, da esplorare — meno "pilota automatico" rispetto a Les Issambres
 
 ---
 
@@ -27,9 +33,9 @@
 - **Meteo** — previsioni dettagliate + vento + alba/tramonto (back → Home)
 - **Checklist** — lista pre-partenza (back → Home)
 - **Zona** — 4 sub-tab: Mercati | Negozi | Aperitivi | Ristoranti (back → Home)
-- **Info** — carburante + contatti utili + link Google Maps distributori (back → Home)
+- **Info** — carburante + contatti utili + traghetto (back → Home)
 - **Maltempo** — lista attività al coperto (back → Home)
-- **Spiagge** — 6 spiagge vicine con info e Maps (back → Home)
+- **Spiagge** — spiagge vicine con info e Maps (back → Home)
 - **Spese** — tracker spese con totale (back → Home)
 - **Lista spesa** — lista della spesa con checkbox (back → Home)
 - Header con titolo cliccabile → Home (sempre visibile)
@@ -38,83 +44,73 @@
 ### Home — 12 widget + Note
 | Widget | Contenuto | Destinazione |
 |--------|-----------|--------------|
-| ✈️ Countdown | giorni/ore alla partenza | — |
+| ✈️ Countdown | giorni/ore alla partenza (28/8) | — |
 | ✅ Checklist | % completamento | → Checklist |
 | 🌤 Meteo | temperatura + descrizione + vento inline | → Meteo |
 | 🛒 Mercato oggi | mercato del giorno | → Zona/Mercati |
-| ⛽ Gasolio | prezzo IT vs FR | → Info |
-| 🍽 Ristoranti | conteggio + dog-friendly | → Zona/Ristoranti |
-| 🛍 Negozi | pesce · carne · frutta · pasticcerie · panetterie | → Zona/Negozi |
+| ⛽ Gasolio | prezzo IT vs FR (tragitto verso Nizza) | → Info |
+| 🍽 Ristoranti | conteggio | → Zona/Ristoranti |
+| 🛍 Negozi | pesce · carne | → Zona/Negozi |
 | 🥂 Aperitivi | conteggio locali | → Zona/Aperitivi |
 | 🌧 Se piove | conteggio idee al coperto | → Maltempo |
 | 🏖 Spiagge | conteggio spiagge | → Spiagge |
 | 💶 Spese | totale € + n. voci | → Spese |
 | 🛒 Lista spesa | voci da prendere | → Lista spesa |
 | 📝 Note | campo testo + lista note con data/ora | (in home) |
+| 🚗 Percorso | link diretto Google Maps Castronno → porto di Nizza | apre Maps |
 
 ---
 
-## Dati Les Issambres
+## Dati Golfo di Sogno / Porto-Vecchio
 
-### Mercati (8)
-- Les Issambres: lun mattina + notturno gio/dom (solo estate)
-- Saint-Tropez: mar/sab
-- Sainte-Maxime: ven mattina + notturno tutti i giorni (solo estate)
-- Saint-Raphaël: mer-dom mattina + antiquariato mer + artigianato dom
+Elenco **volutamente essenziale**: solo esercizi trovati con nome e indirizzo verificabile online. Rispetto alla versione Les Issambres (costruita con più tempo sul posto), qui mancano ancora aperitivi/negozi/pizzerie minori — da integrare una volta arrivati.
+
+### Mercati (3)
+- Mercato di Porto-Vecchio: domenica 9:00–13:00, città alta vicino al municipio
+- Mercato del giovedì (solo luglio-agosto): 7:00–13:00, stesso luogo
+- Mercato notturno del giovedì (solo luglio-agosto): artigianato, 19:00–24:00
 
 ### Supermercati (4)
-- Intermarché Les Issambres · Carrefour Sainte-Maxime · Super U Saint-Raphaël · Leclerc Fréjus
+- Carrefour Market (La Trinité, il più vicino) · Casino CODIM 2 · Hyper U (Les Quatre Chemins) · Auchan ex Géant Casino (ZI Poretta)
 
-### Aperitivi (5)
-- L'Arpillon — Les Issambres · `04 98 21 92 50`
-- La Joya Bay — Les Issambres · `04 94 17 53 84`
-- Café de Paris — Saint-Tropez · `04 94 97 00 56`
-- Le Sporting — Saint-Tropez · `04 94 97 00 65`
-- Bar du Port — Sainte-Maxime (tel non trovato)
+### Aperitivi (2)
+- Da Mare by Sea Lounge — Palombaggia · sunset lounge con DJ set (15:00–20:00 in agosto)
+- Bar Plage — Santa Giulia · cucina mediterranea vista baia
 
-### Ristoranti (10) + Pizzerie (4)
-**Ristoranti:**
-- La Réserve Gayrard · Le Maïva Plage · Le Bistrot du Provençal (Les Issambres)
-- Palma Plage · Martinus · Le Ponton (Saint-Aygulf, 8 km)
-- Les Tourelles · Chez Vous (Sainte-Maxime, 15 km)
-- Le Bistrot Du Coin · Le Bistrot du Port (Grimaud/Port Grimaud, 20 km)
+### Ristoranti (3)
+- Golfo Di Sogno — Ogliastraccio, fronte spiaggia, sulla strada per Cala Rossa (il più vicino)
+- Ranch'O Plage — Cala Rossa, pranzo/cena in riva al mare
+- Costa Marina — vista Palombaggia, cucina francese + pizza al forno a legna
 
-**Pizzerie:**
-- Pizza FanFan · Pizza Gusto (Les Issambres)
-- Pizzas du Golfe · Chez Longu (Sainte-Maxime, 15 km)
+### Negozi (2)
+- 🐟 Pescheria: Poissonnerie Calypso (Porto-Vecchio)
+- 🥩 Macelleria: Boucherie des Éleveurs (Les Quatre Chemins)
 
-### Negozi (12)
-- 🐟 Pescherie (2): Poissonnerie Delmar (Les Issambres) · Poissonnerie du Golfe (Sainte-Maxime)
-- 🥦 Frutta/verdura (1): La Grande Bastide (Roquebrune-sur-Argens)
-- 🥩 Macellerie (3): Boucherie des Issambres · Boucherie Chez Thierry (Saint-Aygulf) · Boucherie du Marché (Sainte-Maxime)
-- 🍰 Pasticcerie (2): La Tarte Tropézienne · Pâtisserie de la Tour (Les Issambres)
-- 🥖 Panetterie (4): Jérôme & Emilie (Les Issambres) · Les Boulangeries du Soleil (Saint-Aygulf) · Maître Julien (Sainte-Maxime) · Boulangerie Boulaire (Saint-Raphaël)
+Mancano ancora: frutta/verdura, pasticceria, panetteria — nessun nome verificato trovato, da cercare in loco.
 
-### Spiagge (6)
-- Gaillarde (0.3 km) — libera, bar, no cani
-- Gaillarde Ovest (0.5 km) — libera, **cani ok**, no bar
-- San Peire (0.8 km) — libera, bar, no cani
-- Gireliers (1.5 km) — libera, no bar, no cani
-- Saint-Aygulf (8 km) — libera, bar, no cani
-- Sainte-Maxime (9 km) — libera, bar, no cani
+### Spiagge (4)
+- Golfo di Sogno (0,3 km) — sotto casa, accesso dal camping, cani da verificare
+- Cala Rossa (3 km) — libera, bar, no cani
+- Palombaggia (10 km) — libera, bar, **cani ok** al guinzaglio (deroga comunale, verificare cartelli)
+- Santa Giulia (12 km) — libera, bar, **cani ok** al guinzaglio (deroga comunale, verificare cartelli)
 
 ### Contatti utili (Info)
-- Villa Goonie François — campo editabile (salvato in localStorage)
+- Alloggio Golfo di Sogno — campo editabile, indirizzo e telefono da aggiungere
 - Emergenze: SAMU 15 · Police 17 · Pompiers 18 · EU 112
-- Vet: Clinique de l'Argens, Roquebrune `04 98 11 82 31`
-- Farmacia: Pharmacie Mola `04 94 96 91 25` · lun-sab 8:30–19:00
-- Taxi du Port 24h `06 42 86 73 36`
-- Taxi Raphael `04 94 44 08 76`
-- Traghetto Les Bateaux Verts `04 94 49 29 39` · Port des Issambres → Saint-Tropez ~35 min · A/R €18,30 · prenotazione: resa.bateauxverts.com
+- Vet: Clinique Vétérinaire des 4 Portes `04 95 70 13 58` (stesso numero per urgenze fuori orario)
+- Farmacia: Pharmacie des 4 Chemins `04 95 70 13 69` — orari da verificare in loco
+- Taxi Ciabrini 24h `06 86 73 97 80`
+- Taxi H24 `04 20 30 30 35`
+- Traghetto Nizza → Porto-Vecchio: Corsica Ferries, ven 28/8 ~22:30 (da verificare), Port de Commerce Terminal 1 Nizza
 
 ### Regole per Bibi
 - Guinzaglio obbligatorio ovunque
-- Spiagge vietate ai cani giugno–settembre
+- Molte spiagge turistiche vietano i cani in alta stagione — Palombaggia e Santa Giulia fanno eccezione (deroga comunale, cani ok al guinzaglio tutto l'anno, verificare cartelli)
 - Supermercati: cani non ammessi
-- Microchip + vaccinazione antirabbica obbligatori per entrare in Francia
+- Microchip + vaccinazione antirabbica obbligatori (Francia, Corsica compresa)
 
 ### Maltempo (5 attività al coperto)
-- Museo dell'Annunciata (Saint-Tropez) · Cittadella · Mercato coperto Saint-Raphaël · Fréjus romana · Shopping Sainte-Maxime
+- Chiesetta di San Giovanni Battista (Porto-Vecchio) · Complesso Galaxy — cinema/bowling/laser game · Alta Game — squash/escape game/VR · Bastion de l'Étendard (Bonifacio, ~25 km) · Città vecchia e acquario di Bonifacio (~25 km)
 
 ---
 
@@ -125,41 +121,43 @@ Sezione **Aggiunte** in fondo: voci custom aggiungibili/modificabili/eliminabili
 
 Categorie: Casa · Auto · Documenti · Cibo · Bibi · Spiaggia e Piscina · Vestiti · Libri e Svago · Tecnologia · DJ · Fotografia · Medicine · Beauty
 
+Da valutare: aggiungere voce "documenti traghetto/prenotazione Corsica Ferries" tra i Documenti, non presente nel modello originale (pensato per un viaggio solo su strada).
+
 ---
 
 ## Note tecniche
 
 ### File principali
-- `index.html` — struttura PWA, 9 sezioni, 12 widget home + Note
-- `js/app.js` — stato, navigazione, countdown, contatti editabili
-- `js/weather.js` — meteo Open-Meteo + calcolo astronomico alba/tramonto
-- `js/fuel.js` — carburante IT (6 waypoint tragitto) + FR (6 waypoint tragitto)
+- `index.html` — struttura PWA, 9 sezioni, 12+ widget home + Note
+- `js/app.js` — stato, navigazione, countdown (partenza 28/8), contatti editabili
+- `js/weather.js` — meteo Open-Meteo + calcolo astronomico alba/tramonto (coordinate Golfo di Sogno)
+- `js/fuel.js` — carburante IT (6 waypoint Castronno→Ventimiglia) + FR (2 waypoint Menton→Nizza)
 - `js/checklist.js` — checklist con localStorage + sezione Aggiunte custom
-- `js/zona.js` — mercati, negozi (con panetterie), aperitivi, ristoranti, regole cane, maltempo
+- `js/zona.js` — mercati, negozi, aperitivi, ristoranti, regole cane, maltempo (dati Porto-Vecchio)
 - `js/notes.js` — note con data/ora, persistenza localStorage, conferma eliminazione
 - `js/spese.js` — tracker spese con totale, conferma eliminazione
 - `js/listaspesa.js` — lista spesa con checkbox, svuota con conferma
-- `js/spiagge.js` — 6 spiagge con info e link Maps
+- `js/spiagge.js` — 4 spiagge con info e link Maps
 - `css/style.css` — design responsive mobile-first
-- `sw.js` — service worker cache-first (v28)
+- `sw.js` — service worker cache-first (`vacanze-golfo-sogno-v1`)
 - `manifest.json` — PWA manifest
 
 ### API usate
 - **Meteo**: Open-Meteo (gratuita, no chiave) — `api.open-meteo.com`
 - **Carburante IT**: API community MIMIT — 6 waypoint Castronno→Ventimiglia, raggio 15km, self-service
-- **Carburante FR**: API governo francese — 6 waypoint Menton→Les Issambres, raggio 15km
+- **Carburante FR**: API governo francese — 2 waypoint Menton→Nizza, raggio 15km
 - **Alba/Tramonto**: calcolo astronomico offline (formula NOAA), nessuna API
 - Le API carburante richiedono HTTPS o localhost (non funzionano su `file://`)
 
 ### URL produzione (GitHub Pages)
 ```
-https://emanu926.github.io/vacanze-es/
+https://emanu926.github.io/vacanze-golfo-di-sogno/
 ```
-Repository: `https://github.com/emanu926/vacanze-es`
+Repository: `https://github.com/Emanu926/vacanze-golfo-di-sogno` (duplicato di `vacanze-es`, storia completa importata)
 
 ### Server locale per sviluppo
 ```
-cd "Les Issambres"
+cd "vacanze-golfo-di-sogno"
 python -m http.server 8765
 ```
 Aprire su `http://127.0.0.1:8765` — dopo ogni modifica fare **Ctrl+Shift+R** per bypassare il service worker.
@@ -169,7 +167,7 @@ Aprire su `http://127.0.0.1:8765` — dopo ogni modifica fare **Ctrl+Shift+R** p
 |--------|-----------|
 | `checklist` | stato checked degli item `{id: boolean}` |
 | `checklist_custom` | voci aggiunte dall'utente `[{id, text}]` |
-| `contatto-villa` | numero telefono François (editabile in-app) |
+| `contatto-villa` | indirizzo/numero alloggio (editabile in-app) |
 | `vacation-notes` | note `[{text, ts}]` |
 | `vacation-spese` | spese `[{motivo, importo, ts}]` |
 | `vacation-listaspesa` | lista spesa `[{testo, fatto}]` |
@@ -178,45 +176,28 @@ Aprire su `http://127.0.0.1:8765` — dopo ogni modifica fare **Ctrl+Shift+R** p
 
 ## Stato costruzione
 
-### ✅ Completato
-- PWA con service worker, manifest, icona SVG
-- Navigazione: header cliccabile + back button in ogni sezione (no nav bar)
-- Home con 12 widget + sezione Note in fondo
-- Meteo con vento inline nel widget (Open-Meteo API)
-- Pagina meteo con card oggi (+ alba/tramonto calcolati offline), card vento, previsioni 7 giorni
-- Prezzi carburante IT vs FR con badge consiglio — media sul tragitto reale (6 waypoint per parte)
-- Link "Trova distributore vicino" → Google Maps
-- Checklist 13 categorie + sezione Aggiunte con add/edit/delete
-- Sezione Zona con 4 sub-tab: Mercati, Negozi (pesce/carne/frutta/pasticcerie/panetterie), Aperitivi, Ristoranti
-- Ristoranti separati da Pizzerie
-- Negozi raggruppati per categoria con telefoni e Maps
-- Contatti editabili in-app salvati in localStorage
-- Regole per Bibi in sezione Info
-- Sezione Maltempo con widget dedicato in home
-- Sezione Spiagge (6 spiagge) con badge cani/bar/libera e link Maps
-- Tracker spese con totale automatico e conferma eliminazione
-- Lista della spesa con checkbox, conferma rimozione singola, svuota tutto e bottone **📤 Condividi** (WhatsApp/iMessage)
-- Note libere con data/ora e conferma eliminazione
-- App installata su iPhone come PWA — `https://emanu926.github.io/vacanze-es/`
-- Campi di testo a 16px per evitare zoom automatico di Safari su iPhone
-- Traghetto Les Bateaux Verts in sezione Info: link prenotazione + orari + telefono + prezzi (Port des Issambres → Saint-Tropez)
-- Bottone **📤 Condividi spese** in sezione Spese (navigator.share con fallback clipboard — funziona su HTTPS/PWA)
+### ✅ Ereditato da Les Issambres (invariato)
+PWA con service worker, navigazione header/back, 12 widget home + Note, meteo con vento inline e alba/tramonto, checklist 13 categorie + Aggiunte custom, Zona 4 sub-tab, contatti editabili in localStorage, tracker spese, lista spesa con condivisione, note con data/ora, installazione PWA iPhone, campi testo 16px anti-zoom Safari.
 
-### 🔲 Da fare (futuro)
-- Sincronizzazione checklist/note/spese tra i due iPhone (richiede backend, es. Supabase)
-- Widget meduse (Meduseo API) — presenza meduse in tempo reale
-- Mappa offline (Leaflet.js + tile OSM cachate per la zona)
-- Sezione eventi in zona durante il periodo di vacanza
+### ✅ Aggiornato per Golfo di Sogno
+- Coordinate meteo e distanze aggiornate su Golfo di Sogno/Porto-Vecchio
+- Tragitto carburante ridotto al solo tratto rilevante (Castronno→Ventimiglia IT, Menton→Nizza FR) dato che dopo Nizza si imbarca
+- Widget "Percorso" ora punta al porto di Nizza (non più a un indirizzo villa)
+- Nuova card Info con dati traghetto Nizza→Porto-Vecchio (orario da confermare, terminal, tempistiche imbarco)
+- Dati zona (mercati, ristoranti, negozi, spiagge, contatti) sostituiti con quelli di Porto-Vecchio — elenco più corto dell'originale, verificato solo con nomi/indirizzi trovabili online
+- Regole cane aggiornate (eccezione Palombaggia/Santa Giulia)
+- Cache service worker rinominata `vacanze-golfo-sogno-v1`
 
-### 📋 Modello di lavoro per nuove vacanze
-Questa cartella è un'istanza specifica (Les Issambres 2026). Per ogni nuova vacanza si duplica la cartella e si aggiornano:
-- Coordinate (`LAT`/`LON` in `weather.js`, waypoint in `fuel.js`)
-- Data partenza in `app.js`
-- Dati locali in `zona.js` e `spiagge.js` (mercati, ristoranti, negozi, spiagge)
-- Nome villa e contatti in `index.html`
-- Versione cache in `sw.js`
+### 🔲 Da fare
+- Aggiungere indirizzo e contatto esatti dell'alloggio (non ancora prenotato/definito al momento della duplicazione)
+- Confermare orario esatto del traghetto sulla prenotazione reale
+- Decidere e inserire la data di rientro
+- Espandere aperitivi/negozi/pizzerie una volta sul posto
+- Sincronizzazione checklist/note/spese tra i due iPhone (richiede backend, es. Supabase) — invariato dal modello originale
+- Widget meduse, mappa offline, eventi in zona — invariato dal modello originale
 
-Le località già visitate si conservano nella loro cartella — si riparte da lì aggiornando solo date e dati cambiati.
+### 📋 Provenienza
+Cartella duplicata da `vacanze-es` (Les Issambres 2026) il 16/08/2026 tramite import GitHub (storia commit conservata). Per la prossima vacanza si ripete lo stesso procedimento: duplicare, aggiornare coordinate/data/dati locali/nome alloggio/versione cache. Le località già visitate restano nella loro cartella.
 
 ---
-*Ultimo aggiornamento: 19 giugno 2026*
+*Ultimo aggiornamento: 16 agosto 2026*
