@@ -1,6 +1,6 @@
 // ===== CARBURANTE =====
 // Italia:  API community su dati MIMIT — media lungo tragitto Castronno→Ventimiglia
-// Francia: API open data governo francese — media lungo tragitto confine→Les Issambres
+// Francia: API open data governo francese — media lungo tragitto confine→Nizza (imbarco traghetto)
 
 // Punti lungo il tragitto IT: Castronno → Milano → Alessandria → Savona → Imperia → Ventimiglia
 const IT_WAYPOINTS = [
@@ -13,14 +13,10 @@ const IT_WAYPOINTS = [
 ];
 const IT_API_BASE = 'https://prezzi-carburante.onrender.com/api/distributori';
 
-// Punti lungo il tragitto FR: Menton → Nizza → Cannes → Fréjus → Les Issambres
+// Punti lungo il tragitto FR: Menton → Nizza (ultimo tratto prima dell'imbarco)
 const FR_WAYPOINTS = [
     [43.78, 7.50],   // Menton
-    [43.71, 7.26],   // Nizza
-    [43.58, 7.09],   // Antibes
-    [43.55, 7.02],   // Cannes
-    [43.43, 6.74],   // Fréjus
-    [43.38, 6.73],   // Les Issambres
+    [43.70, 7.27],   // Nizza
 ];
 const FR_API_BASE = 'https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets'
     + '/prix-des-carburants-en-france-flux-instantane-v2/records';
@@ -124,7 +120,7 @@ function renderFuelPage(fr, it) {
     });
 
     html += `</div>
-        <div class="fuel-note">IT: media self-service (VA→MI→AL→SV→IM→Ventimiglia) · FR: media sul tragitto (Menton→Nizza→Cannes→Fréjus→Les Issambres) · ${now}</div>
+        <div class="fuel-note">IT: media self-service (VA→MI→AL→SV→IM→Ventimiglia) · FR: media sul tragitto (Menton→Nizza) · ${now}</div>
         <button class="fuel-refresh" onclick="fetchFuelPrices()">🔄 Aggiorna</button>
         <a href="https://maps.google.com/?q=stazione+di+servizio+vicino+a+me" target="_blank" class="fuel-maps-btn">🗺 Trova distributore vicino</a>`;
 

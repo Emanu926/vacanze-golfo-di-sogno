@@ -1,7 +1,7 @@
 // ===== METEO — Open-Meteo API =====
-// Coordinate Les Issambres
-const LAT = 43.3867;
-const LON = 6.7167;
+// Coordinate Golfo di Sogno, Porto-Vecchio (Corse-du-Sud)
+const LAT = 41.6292;
+const LON = 9.3155;
 
 const METEO_URL = `https://api.open-meteo.com/v1/forecast`
     + `?latitude=${LAT}&longitude=${LON}`

@@ -1,7 +1,11 @@
 // ===== STATO =====
+// Partenza da Castronno indicativa nel primo pomeriggio di venerdì 28/8, per
+// arrivare al porto di Nizza con margine prima dell'imbarco (traghetto Corsica
+// Ferries, orario indicativo 22:30 — verificare sulla prenotazione). Aggiustare
+// l'ora se cambiano i piani.
 const state = {
     section: 'home',
-    departure: new Date('2026-06-27T08:00:00')
+    departure: new Date('2026-08-28T15:30:00')
 };
 
 // ===== AVVIO =====

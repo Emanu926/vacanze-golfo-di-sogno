@@ -1,88 +1,55 @@
-// ===== DATI ZONA LES ISSAMBRES =====
+// ===== DATI ZONA GOLFO DI SOGNO / PORTO-VECCHIO =====
+// Elenco volutamente essenziale: solo esercizi trovati con nome/indirizzo verificabile.
+// Da integrare sul posto (aperitivi, negozi extra, pizzerie) — vedi progetto.md.
 
 // Giorni: 0=Dom 1=Lun 2=Mar 3=Mer 4=Gio 5=Ven 6=Sab
 const MERCATI = [
-    { nome: 'Mercato Les Issambres',            luogo: 'Promenade Adrien Beaumont',      giorni: [1],          ora: '8:00–12:30',  tipo: '🥦 Alimentare',    km: 0  },
-    { nome: 'Mercato notturno Les Issambres',   luogo: 'Promenade Adrien Beaumont',      giorni: [0, 4],       ora: '19:00–23:00', tipo: '🌙 Notturno',      km: 0,  soloEstate: true },
-    { nome: 'Saint-Tropez — Place des Lices',   luogo: 'Place des Lices, Saint-Tropez',  giorni: [2, 6],       ora: '8:00–13:00',  tipo: '🛍 Provenzale',   km: 22 },
-    { nome: 'Sainte-Maxime',                    luogo: 'Place Jean Mermoz',              giorni: [5],          ora: '8:00–12:30',  tipo: '🥦 Alimentare',    km: 8  },
-    { nome: 'Sainte-Maxime notturno',           luogo: 'Lungomare, Sainte-Maxime',       giorni: [0,1,2,3,4,5,6], ora: 'dalle 16:00', tipo: '🌙 Artigianato', km: 8,  soloEstate: true },
-    { nome: 'Saint-Raphaël — centro',           luogo: 'P.za Victor Hugo',               giorni: [2,3,4,5,6,0], ora: 'mattina',   tipo: '🥦 Alimentare',    km: 15 },
-    { nome: 'Saint-Raphaël antiquariato',       luogo: 'Piazza Coullet',                 giorni: [2],          ora: 'mattina',     tipo: '🏺 Antiquariato',  km: 15 },
-    { nome: 'Saint-Raphaël artigianato',        luogo: 'Porto vecchio',                  giorni: [0],          ora: 'mattina',     tipo: '🎨 Artigianato',  km: 15 },
+    { nome: 'Mercato di Porto-Vecchio',         luogo: 'Città alta, vicino al municipio', giorni: [0],  ora: '9:00–13:00',  tipo: '🥦 Alimentare',   km: 8 },
+    { nome: 'Mercato del giovedì',               luogo: 'Città alta, vicino al municipio', giorni: [4],  ora: '7:00–13:00',  tipo: '🥦 Alimentare',   km: 8, soloEstate: true },
+    { nome: 'Mercato notturno del giovedì',      luogo: 'Città alta, Porto-Vecchio',       giorni: [4],  ora: '19:00–24:00', tipo: '🌙 Artigianato', km: 8, soloEstate: true },
 ];
 
 const GIORNI_NOMI = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
 const GIORNI_BREVI = ['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
 
 const APERITIVI = [
-    { nome: 'L\'Arpillon',   luogo: 'Les Issambres',  addr: '5015 Corniche des Issambres Les Issambres', tel: '0498219250', note: 'Spiaggia San Peire · cocktail e gelati · vista mare' },
-    { nome: 'La Joya Bay',   luogo: 'Les Issambres',  addr: '2411 Corniche des Issambres Les Issambres', tel: '0494175384', note: 'Bar + piscina + spiaggia privata · vista mare' },
-    { nome: 'Café de Paris', luogo: 'Saint-Tropez',   addr: 'Café de Paris Le Port Saint-Tropez',        tel: '0494970056', note: 'Classico sul porto · iconico · 22 km' },
-    { nome: 'Le Sporting',   luogo: 'Saint-Tropez',   addr: '42 Place des Lices Saint-Tropez',           tel: '0494970065', note: 'Place des Lices · più tranquillo del porto · 22 km' },
-    { nome: 'Bar du Port',   luogo: 'Sainte-Maxime',  addr: 'Port de Sainte-Maxime',                     tel: '',           note: 'Sul porto · tramonto verso ovest · 8 km' },
+    { nome: 'Da Mare by Sea Lounge', luogo: 'Palombaggia', addr: 'Da Mare Sea Lounge Plage de Palombaggia Porto-Vecchio', tel: '', note: 'Sunset lounge con DJ set su Palombaggia, dalle 15 alle 20 in agosto · ~10 km' },
+    { nome: 'Bar Plage',             luogo: 'Santa Giulia', addr: 'Bar Plage Santa Giulia Porto-Vecchio',                  tel: '', note: 'Cucina mediterranea vista baia di Santa Giulia · ~12 km' },
 ];
 
 const RISTORANTI = [
-    { nome: 'La Réserve Gayrard',     luogo: 'Les Issambres',  km: 0,  cani: true,  tel: '0494963539', addr: 'La Réserve Gayrard Les Issambres',           note: 'Piedi nell\'acqua, spiaggia Gaillarde. Cucina mediterranea, prodotti locali. Menu ~60€' },
-    { nome: 'Le Maïva Plage',         luogo: 'Les Issambres',  km: 0,  cani: true,  tel: '0494968243', addr: 'Le Maïva Plage Gaillarde Les Issambres',       note: 'Spiaggia Gaillarde. Cucina mediterranea, terrazza teak vista mare' },
-    { nome: 'Le Bistrot du Provençal', luogo: 'Les Issambres', km: 0,  cani: false, tel: '0494553233', addr: 'Hotel Le Provençal San Peïre Les Issambres',    note: 'Cucina francese e mediterranea, prodotti freschi locali' },
-    { nome: 'Palma Plage',            luogo: 'Saint-Aygulf',   km: 8,  cani: false, tel: '0494454644', addr: '217 Avenue Côte d\'Azur Saint-Aygulf',         note: 'Piedi nell\'acqua, spiaggia Galiote. Cucina leggera, prodotti locali' },
-    { nome: 'Martinus',               luogo: 'Saint-Aygulf',   km: 8,  cani: false, tel: '0494527485', addr: '214 RD 559 Saint-Aygulf',                       note: 'Vista panoramica sul Mediterraneo, spiaggia Esclamandes' },
-    { nome: 'Le Ponton',              luogo: 'Saint-Aygulf',   km: 8,  cani: true,  tel: '',           addr: 'Le Ponton Saint-Aygulf',                        note: 'Cucina francese autentica in riva al mare. Cani tollerati in terrazza' },
-    { nome: 'Les Tourelles',          luogo: 'Sainte-Maxime',  km: 15, cani: true,  tel: '0494960249', addr: '5 Boulevard des Cistes Sainte-Maxime',          note: 'Terrazza, cani in guinzaglio ammessi. Prodotti freschi · 9.2/10' },
-    { nome: 'Chez Vous',              luogo: 'Sainte-Maxime',  km: 15, cani: false, tel: '0494796714', addr: '20 Avenue Charles de Gaulle Sainte-Maxime',     note: 'Atmosfera familiare, prodotti freschi di stagione' },
-    { nome: 'Le Bistrot Du Coin',     luogo: 'Grimaud',        km: 20, cani: true,  tel: '0953245890', addr: '905 Avenue du Peyrat Grimaud',                  note: 'Cucina francese tradizionale, ambiente caldo' },
-    { nome: 'Le Bistrot du Port',     luogo: 'Port Grimaud',   km: 20, cani: false, tel: '',           addr: 'Le Bistrot du Port Port Grimaud',               note: 'Vista porto, bouillabaisse e frutti di mare' },
-    // Pizzerie
-    { nome: 'Pizza FanFan',           luogo: 'Les Issambres',  km: 0,  cani: false, tel: '0494495313', addr: '101 Place San Peire Les Issambres',              note: 'Place San Peire · 17:00–22:00', pizza: true },
-    { nome: 'Pizza Gusto',            luogo: 'Les Issambres',  km: 0,  cani: false, tel: '0494562450', addr: '14 Place San Peire Les Issambres',               note: 'Place San Peire · 17:30–21:00', pizza: true },
-    { nome: 'Pizzas du Golfe',        luogo: 'Sainte-Maxime',  km: 15, cani: false, tel: '0494963650', addr: '13 Rue du Docteur Sigallas Sainte-Maxime',       note: 'Forno a legna · anche a domicilio', pizza: true },
-    { nome: 'Chez Longu',             luogo: 'Sainte-Maxime',  km: 15, cani: false, tel: '0494490700', addr: '62 Rue Paul Bert Sainte-Maxime',                 note: 'Brasserie + pizzeria + frutti di mare', pizza: true },
+    { nome: 'Golfo Di Sogno',   luogo: 'Ogliastraccio', km: 1,  cani: false, tel: '', addr: 'Golfo Di Sogno Ogliastraccio Porto-Vecchio',    note: 'Fronte spiaggia, sulla strada per Cala Rossa. Buona accoglienza, recensioni positive.' },
+    { nome: 'Ranch\'O Plage',   luogo: 'Cala Rossa',    km: 3,  cani: false, tel: '', addr: 'Ranch\'O Plage Cala Rossa Lecci Porto-Vecchio', note: 'Pranzo e cena in riva al mare, bar e gelati.' },
+    { nome: 'Costa Marina',     luogo: 'Palombaggia',   km: 10, cani: false, tel: '', addr: 'Costa Marina Palombaggia Porto-Vecchio',        note: 'Vista sulla spiaggia di Palombaggia, cucina francese e pizza al forno a legna.' },
 ];
 
 const SUPERMERCATI = [
-    { nome: 'Intermarché',      luogo: 'Les Issambres',  note: 'Più vicino alla villa', addr: 'Intermarché Les Issambres' },
-    { nome: 'Carrefour Market', luogo: 'Sainte-Maxime',  note: '8 km',                  addr: 'Carrefour Market Sainte-Maxime' },
-    { nome: 'Super U',          luogo: 'Saint-Raphaël',  note: '15 km, grande',          addr: 'Super U Saint-Raphaël' },
-    { nome: 'Leclerc',          luogo: 'Fréjus',         note: '18 km, prezzi migliori', addr: 'Leclerc Fréjus' },
+    { nome: 'Carrefour Market', luogo: 'La Trinité',      note: 'il più vicino · ~6 km', addr: 'Carrefour Market Rond-Point la Trinité Porto-Vecchio' },
+    { nome: 'Casino CODIM 2',   luogo: 'Porto-Vecchio',    note: '~8 km',                 addr: 'Casino CODIM 2 Rue du 9 Septembre 1943 Porto-Vecchio' },
+    { nome: 'Hyper U',          luogo: 'Les Quatre Chemins', note: '~9 km, grande',       addr: 'Hyper U Centre Commercial Grand Sud Les Quatre Chemins Porto-Vecchio' },
+    { nome: 'Auchan',           luogo: 'ZI Poretta',       note: '~9 km, ex Géant Casino',addr: 'Auchan Rue Henri Frenay ZI Poretta Porto-Vecchio' },
 ];
 
 const NEGOZI = [
-    // Pescherie
-    { cat: '🐟 Pescheria', nome: 'Poissonnerie Delmar',    luogo: 'Les Issambres',        addr: '9 Place San Peire Les Issambres',                 tel: '0494542431', note: 'Pesce fresco · Place San Peire' },
-    { cat: '🐟 Pescheria', nome: 'Poissonnerie du Golfe',  luogo: 'Sainte-Maxime',        addr: '98 route du Plan de la Tour Sainte-Maxime',       tel: '0494799455', note: '15 km · Halles d\'Yvette' },
-    // Frutta e verdura
-    { cat: '🥦 Frutta e verdura', nome: 'La Grande Bastide', luogo: 'Roquebrune-sur-Argens', addr: '160 route du Golf Roquebrune-sur-Argens',      tel: '0494536255', note: '30+ produttori locali, vendita diretta · prodotti di stagione' },
-    // Macellerie
-    { cat: '🥩 Macelleria', nome: 'Boucherie des Issambres', luogo: 'Les Issambres',      addr: '14 Place San Peire Les Issambres',                tel: '0494969246', note: 'Macellaio artigianale · Place San Peire' },
-    { cat: '🥩 Macelleria', nome: 'Boucherie Chez Thierry',  luogo: 'Saint-Aygulf',       addr: '672 Avenue Louis Castillon Saint-Aygulf',         tel: '0494812263', note: '8 km' },
-    { cat: '🥩 Macelleria', nome: 'Boucherie du Marché',     luogo: 'Sainte-Maxime',      addr: 'Marché Couvert 4 rue Fernand Bessy Sainte-Maxime',tel: '0489991124', note: '15 km · nel mercato coperto' },
-    // Pasticcerie
-    { cat: '🍰 Pasticceria', nome: 'La Tarte Tropézienne',  luogo: 'Les Issambres',       addr: '234 Boulevard des Murènes Les Issambres',         tel: '0494968460', note: 'La ricetta originale dal 1955 · aperta da 7:00' },
-    { cat: '🍰 Pasticceria', nome: 'Pâtisserie de la Tour', luogo: 'Les Issambres',       addr: 'Allée des Muges Les Issambres',                   tel: '',           note: 'Pasticceria artigianale · aperta da 6:30' },
-    // Panettieri
-    { cat: '🥖 Panetteria', nome: 'Jérôme & Emilie',                    luogo: 'Les Issambres',  addr: '139 Boulevard des Myrtes 83380 Les Issambres',              tel: '',           note: 'Baguette e viennoiserie · aperta da 7:00' },
-    { cat: '🥖 Panetteria', nome: 'Les Boulangeries du Soleil',          luogo: 'Saint-Aygulf',   addr: '1183 Avenue de la Corniche d\'Azur 83370 Saint-Aygulf',     tel: '0494958023', note: '8 km · aperta 6:00–20:00 tutti i giorni' },
-    { cat: '🥖 Panetteria', nome: 'Maître Julien Artisan Boulanger',     luogo: 'Sainte-Maxime',  addr: '87 Route du Plan de la Tour 83120 Sainte-Maxime',           tel: '0494961999', note: '8 km · 493 recensioni · aperta 6:30–20:00' },
-    { cat: '🥖 Panetteria', nome: 'Boulangerie Pâtisserie Boulaire',     luogo: 'Saint-Raphaël',  addr: '29 rue Marius Allongue 83700 Saint-Raphaël',               tel: '0494950782', note: '15 km · aperta 6:30–13:30 e 15:00–19:15' },
+    { cat: '🐟 Pescheria',  nome: 'Poissonnerie Calypso',    luogo: 'Porto-Vecchio',      addr: 'Calypso Avenue Georges-Pompidou Porto-Vecchio',            tel: '', note: '~8 km' },
+    { cat: '🥩 Macelleria', nome: 'Boucherie des Éleveurs',  luogo: 'Les Quatre Chemins', addr: 'Boucherie des Éleveurs Avenue de Bastia Porto-Vecchio',   tel: '', note: '~9 km' },
 ];
 
 const MALTEMPO = [
-    { cosa: 'Museo dell\'Annunciata',    dove: 'Saint-Tropez', note: 'Arte provenzale, fresco e tranquillo' },
-    { cosa: 'Cittadella di Saint-Tropez',dove: 'Saint-Tropez', note: 'Vista panoramica, storia locale' },
-    { cosa: 'Mercato coperto',           dove: 'Saint-Raphaël',note: 'Mercato al coperto ogni mattina' },
-    { cosa: 'Fréjus romana',             dove: 'Fréjus',       note: 'Anfiteatro romano, arena. 18 km' },
-    { cosa: 'Shopping centro',           dove: 'Sainte-Maxime',note: 'Centro pedonale, 8 km' },
+    { cosa: 'Chiesetta di San Giovanni Battista', dove: 'Porto-Vecchio, città alta', note: 'Piccola chiesa storica nel centro, arredi e reperti locali.' },
+    { cosa: 'Complesso Galaxy',                   dove: 'a nord di Porto-Vecchio',   note: 'Cinema, bowling, laser game.' },
+    { cosa: 'Alta Game',                          dove: 'Porto-Vecchio',             note: 'Squash, escape game, realtà virtuale, calcetto.' },
+    { cosa: 'Bastion de l\'Étendard',              dove: 'Bonifacio',                 note: 'Museo nella cittadella, sale sotterranee · ~25 km' },
+    { cosa: 'Città vecchia e acquario',           dove: 'Bonifacio',                 note: 'Acquario e giro in barca coperta nelle Bocche di Bonifacio · ~25 km' },
 ];
 
 const REGOLE_CANE = [
     '🐾 Guinzaglio obbligatorio in tutti i luoghi pubblici',
-    '🏖 La maggior parte delle spiagge vieta i cani da giugno a settembre',
+    '🏖 Molte spiagge turistiche vietano i cani in alta stagione — Palombaggia e Santa Giulia fanno eccezione: cani al guinzaglio ammessi tutto l\'anno per deroga comunale, ma verificare i cartelli in loco',
     '🍽 I ristoranti non sono obbligati ad accettare cani — meglio chiedere prima (terrasse sì di solito)',
     '🛒 Supermercati: cani non ammessi all\'interno',
     '✅ Cani ammessi nei parchi e nella maggior parte dei sentieri',
-    '📋 Bibi deve avere microchip e vaccinazione antirabbica in regola per entrare in Francia',
+    '📋 Bibi deve avere microchip e vaccinazione antirabbica in regola per entrare in Francia (Corsica compresa)',
 ];
 
 // ===== HELPER LINKS =====

@@ -34,7 +34,7 @@ function condividiSpese() {
         const data = d.toLocaleDateString('it-IT', { day: '2-digit', month: 'short' });
         return `• ${s.motivo} — € ${s.importo.toFixed(2)} (${data})`;
     }).join('\n');
-    const testo = `💶 Spese vacanza\n\n${righe}\n\nTotale: € ${totale.toFixed(2)}\n\nLes Issambres 2026`;
+    const testo = `💶 Spese vacanza\n\n${righe}\n\nTotale: € ${totale.toFixed(2)}\n\nGolfo di Sogno 2026`;
     if (navigator.share) {
         navigator.share({ text: testo });
     } else {
