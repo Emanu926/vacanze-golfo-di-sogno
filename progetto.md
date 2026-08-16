@@ -7,7 +7,7 @@
 
 ## Vacanza 2026 — Corsica, Golfo di Sogno
 - **Dove**: Golfo di Sogno, frazione di Porto-Vecchio (Corse-du-Sud) — sulla strada tra la Trinité e Cala Rossa
-- **Casa**: da definire — indirizzo esatto e contatto dell'affittuario ancora da aggiungere (campo editabile in-app)
+- **Casa**: **Villa Casa Di Sogno by Interhome** — 20137 Porto-Vecchio. Trovata su Booking.com (stesso immobile presumibilmente anche su Airbnb, non verificato con certezza). Intero alloggio 200 m², piscina privata, vista mare, aria condizionata, WiFi, parcheggio gratuito, 2 bagni. Coordinate reali: 41.6306, 9.3106 (usate in `weather.js`). **Indirizzo esatto** non pubblico — arriva via email solo dopo la prenotazione confermata (gestione Interhome). Check-in 16:00–18:00, check-out 10:00, deposito cauzionale €400 in contanti. **Animali ammessi su richiesta, possibile supplemento — confermare Bibi con la struttura prima di partire.** Al momento della ricerca (16/8) la struttura non risultava prenotabile su Booking.com per queste date — da verificare se già prenotata altrove o non disponibile.
 - **Quando**: partenza 28 agosto, soggiorno di almeno 2 settimane — rientro non ancora deciso
 - **Partenza da**: Castronno (VA) in auto fino a Nizza, poi traghetto per Porto-Vecchio
 - **Auto**: Land Rover Discovery Sport
@@ -189,7 +189,8 @@ PWA con service worker, navigazione header/back, 12 widget home + Note, meteo co
 - Cache service worker rinominata `vacanze-golfo-sogno-v1`
 
 ### 🔲 Da fare
-- Aggiungere indirizzo e contatto esatti dell'alloggio (non ancora prenotato/definito al momento della duplicazione)
+- Aggiungere indirizzo esatto e numero di telefono della villa (arrivano con la conferma Interhome) nel campo editabile `contatto-villa`
+- Confermare con la struttura che Bibi è ammesso (animali su richiesta, possibile supplemento)
 - Confermare orario esatto del traghetto sulla prenotazione reale
 - Decidere e inserire la data di rientro
 - Espandere aperitivi/negozi/pizzerie una volta sul posto
