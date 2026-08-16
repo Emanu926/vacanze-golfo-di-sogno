@@ -7,7 +7,7 @@
 
 ## Vacanza 2026 — Corsica, Golfo di Sogno
 - **Dove**: Golfo di Sogno, frazione di Porto-Vecchio (Corse-du-Sud) — sulla strada tra la Trinité e Cala Rossa
-- **Casa**: **Villa Casa Di Sogno by Interhome** — 20137 Porto-Vecchio. Trovata su Booking.com (stesso immobile presumibilmente anche su Airbnb, non verificato con certezza). Intero alloggio 200 m², piscina privata, vista mare, aria condizionata, WiFi, parcheggio gratuito, 2 bagni. Coordinate reali: 41.6306, 9.3106 (usate in `weather.js`). **Indirizzo esatto** non pubblico — arriva via email solo dopo la prenotazione confermata (gestione Interhome). Check-in 16:00–18:00, check-out 10:00, deposito cauzionale €400 in contanti. **Animali ammessi su richiesta, possibile supplemento — confermare Bibi con la struttura prima di partire.** Al momento della ricerca (16/8) la struttura non risultava prenotabile su Booking.com per queste date — da verificare se già prenotata altrove o non disponibile.
+- **Casa**: **Villa Casa Di Sogno by Interhome** — 20137 Porto-Vecchio, **Lot. Cala Di Sogno** (lottizzazione residenziale su una strada parallela dietro la D468, confermato da foto Google Maps dell'utente con freccia). Trovata su Booking.com (stesso immobile presumibilmente anche su Airbnb, non verificato con certezza). Intero alloggio 200 m², piscina privata, vista mare, aria condizionata, WiFi, parcheggio gratuito, 2 bagni. Coordinate reali: 41.6306, 9.3106 (usate in `weather.js`) — confermate anche visivamente dalla foto dell'utente, stessa zona. **Indirizzo esatto con numero civico** non pubblico — arriva via email solo dopo la prenotazione confermata (gestione Interhome). Check-in 16:00–18:00, check-out 10:00, deposito cauzionale €400 in contanti. **Animali ammessi su richiesta, possibile supplemento — confermare Bibi con la struttura prima di partire.** Al momento della ricerca (16/8) la struttura non risultava prenotabile su Booking.com per queste date — da verificare se già prenotata altrove o non disponibile.
 - **Quando**: partenza 28 agosto, soggiorno di almeno 2 settimane — rientro non ancora deciso
 - **Partenza da**: Castronno (VA) in auto fino a Nizza, poi traghetto per Porto-Vecchio
 - **Auto**: Land Rover Discovery Sport
@@ -73,26 +73,33 @@ Elenco **volutamente essenziale**: solo esercizi trovati con nome e indirizzo ve
 ### Supermercati (4)
 - Carrefour Market (La Trinité, il più vicino) · Casino CODIM 2 · Hyper U (Les Quatre Chemins) · Auchan ex Géant Casino (ZI Poretta)
 
-### Aperitivi (2)
+### Aperitivi (6)
 - Da Mare by Sea Lounge — Palombaggia · sunset lounge con DJ set (15:00–20:00 in agosto)
 - Bar Plage — Santa Giulia · cucina mediterranea vista baia
+- L'Othello · Le Point de Vue · Le Patio · Bar Le Vinyle — tutti in centro storico Porto-Vecchio (~8 km)
 
-### Ristoranti (3)
+### Ristoranti (10)
 - Golfo Di Sogno — Ogliastraccio, fronte spiaggia, sulla strada per Cala Rossa (il più vicino)
+- Rôtisserie Franky, l'Alivi Pezza Cardo, Passe Temps — 1,2–1,6 km dalla villa (confermati da Booking.com)
 - Ranch'O Plage — Cala Rossa, pranzo/cena in riva al mare
 - Costa Marina — vista Palombaggia, cucina francese + pizza al forno a legna
+- Ristorante Terramea, Le Belvédère, Les Jardins De La Paresse, Tropicana, Casa del Mar (stellato) — centro Porto-Vecchio/dintorni (~8-9 km)
 
-### Negozi (2)
+### Negozi (5)
 - 🐟 Pescheria: Poissonnerie Calypso (Porto-Vecchio)
 - 🥩 Macelleria: Boucherie des Éleveurs (Les Quatre Chemins)
+- 🥦 Frutta e verdura: Fratani Michel (Lecci — il più vicino, stessa zona della villa)
+- 🥖 Panetteria: Boulangerie Pietri (Suariccia) · Boulangerie Patisserie Moderne (Poretta)
 
-Mancano ancora: frutta/verdura, pasticceria, panetteria — nessun nome verificato trovato, da cercare in loco.
+Mancano ancora: pasticceria dedicata — nessun nome verificato trovato, da cercare in loco.
 
-### Spiagge (4)
-- Golfo di Sogno (0,3 km) — sotto casa, accesso dal camping, cani da verificare
-- Cala Rossa (3 km) — libera, bar, no cani
+### Spiagge (6, raggio esteso a ~30 km)
+- Golfo di Sogno/Baia degli Stagnoli (1,8 km) — sotto casa, accesso dal camping, cani da verificare
+- Cala Rossa (4 km) — libera, bar, no cani
 - Palombaggia (10 km) — libera, bar, **cani ok** al guinzaglio (deroga comunale, verificare cartelli)
 - Santa Giulia (12 km) — libera, bar, **cani ok** al guinzaglio (deroga comunale, verificare cartelli)
+- Rondinara (~20 km) — baia a ferro di cavallo, tra le più belle d'Europa, molto frequentata
+- Piantarella (~32 km, vicino Bonifacio) — windsurf/kitesurf, vista isole, poco oltre i 30 km ma buona per una gita a Bonifacio
 
 ### Contatti utili (Info)
 - Alloggio Golfo di Sogno — campo editabile, indirizzo e telefono da aggiungere
@@ -131,7 +138,7 @@ Da valutare: aggiungere voce "documenti traghetto/prenotazione Corsica Ferries" 
 - `index.html` — struttura PWA, 9 sezioni, 12+ widget home + Note
 - `js/app.js` — stato, navigazione, countdown (partenza 28/8), contatti editabili
 - `js/weather.js` — meteo Open-Meteo + calcolo astronomico alba/tramonto (coordinate Golfo di Sogno)
-- `js/fuel.js` — carburante IT (6 waypoint Castronno→Ventimiglia) + FR (2 waypoint Menton→Nizza)
+- `js/fuel.js` — carburante a 3: IT (6 waypoint Castronno→Ventimiglia) + FR (2 waypoint Menton→Nizza) + Corsica (Porto-Vecchio/Lecci)
 - `js/checklist.js` — checklist con localStorage + sezione Aggiunte custom
 - `js/zona.js` — mercati, negozi, aperitivi, ristoranti, regole cane, maltempo (dati Porto-Vecchio)
 - `js/notes.js` — note con data/ora, persistenza localStorage, conferma eliminazione
@@ -145,7 +152,7 @@ Da valutare: aggiungere voce "documenti traghetto/prenotazione Corsica Ferries" 
 ### API usate
 - **Meteo**: Open-Meteo (gratuita, no chiave) — `api.open-meteo.com`
 - **Carburante IT**: API community MIMIT — 6 waypoint Castronno→Ventimiglia, raggio 15km, self-service
-- **Carburante FR**: API governo francese — 2 waypoint Menton→Nizza, raggio 15km
+- **Carburante FR/Corsica**: stessa API governo francese — 2 waypoint Menton→Nizza (FR) + 2 waypoint Porto-Vecchio/Lecci (Corsica), raggio 15km
 - **Alba/Tramonto**: calcolo astronomico offline (formula NOAA), nessuna API
 - Le API carburante richiedono HTTPS o localhost (non funzionano su `file://`)
 

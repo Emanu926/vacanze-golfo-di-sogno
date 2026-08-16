@@ -1,4 +1,4 @@
-const CACHE = 'vacanze-golfo-sogno-v2';
+const CACHE = 'vacanze-golfo-sogno-v3';
 const ASSETS = [
     './index.html',
     './css/style.css',
