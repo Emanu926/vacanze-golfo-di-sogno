@@ -18,8 +18,11 @@ const APERITIVI = [
 ];
 
 const RISTORANTI = [
+    { nome: 'Rôtisserie Franky Porto-Vecchio', luogo: 'vicino alla villa', km: 1.2, cani: false, tel: '', addr: 'Rôtisserie Franky Porto-Vecchio', note: 'Il più vicino alla villa (1,2 km).' },
+    { nome: 'Restaurant l\'Alivi Pezza Cardo', luogo: 'vicino alla villa', km: 1.3, cani: false, tel: '', addr: 'Restaurant l\'Alivi Pezza Cardo Porto-Vecchio', note: '1,3 km dalla villa.' },
+    { nome: 'Passe Temps',                     luogo: 'vicino alla villa', km: 1.6, cani: false, tel: '', addr: 'Restaurant Passe Temps Porto-Vecchio', note: '1,6 km dalla villa.' },
     { nome: 'Golfo Di Sogno',   luogo: 'Ogliastraccio', km: 1,  cani: false, tel: '', addr: 'Golfo Di Sogno Ogliastraccio Porto-Vecchio',    note: 'Fronte spiaggia, sulla strada per Cala Rossa. Buona accoglienza, recensioni positive.' },
-    { nome: 'Ranch\'O Plage',   luogo: 'Cala Rossa',    km: 3,  cani: false, tel: '', addr: 'Ranch\'O Plage Cala Rossa Lecci Porto-Vecchio', note: 'Pranzo e cena in riva al mare, bar e gelati.' },
+    { nome: 'Ranch\'O Plage',   luogo: 'Cala Rossa',    km: 4,  cani: false, tel: '', addr: 'Ranch\'O Plage Cala Rossa Lecci Porto-Vecchio', note: 'Pranzo e cena in riva al mare, bar e gelati.' },
     { nome: 'Costa Marina',     luogo: 'Palombaggia',   km: 10, cani: false, tel: '', addr: 'Costa Marina Palombaggia Porto-Vecchio',        note: 'Vista sulla spiaggia di Palombaggia, cucina francese e pizza al forno a legna.' },
 ];
 

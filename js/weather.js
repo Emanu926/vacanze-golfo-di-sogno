@@ -1,7 +1,7 @@
 // ===== METEO — Open-Meteo API =====
-// Coordinate Golfo di Sogno, Porto-Vecchio (Corse-du-Sud)
-const LAT = 41.6292;
-const LON = 9.3155;
+// Coordinate Villa Casa Di Sogno by Interhome, Porto-Vecchio (Corse-du-Sud)
+const LAT = 41.6306;
+const LON = 9.3106;
 
 const METEO_URL = `https://api.open-meteo.com/v1/forecast`
     + `?latitude=${LAT}&longitude=${LON}`

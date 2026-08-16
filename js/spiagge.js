@@ -1,13 +1,13 @@
 const SPIAGGE = [
     {
-        nome: 'Spiaggia di Golfo di Sogno',
-        km: 0.3, libera: false, cani: false, bar: true,
-        note: 'La spiaggia proprio sotto casa, sabbia bianca nella baia di Stagnolu. Accesso attraverso il camping Golfo di Sogno (oltre 1 ora è a pagamento). Cani: da verificare in loco.',
+        nome: 'Spiaggia della Baia degli Stagnoli (Golfo di Sogno)',
+        km: 1.8, libera: false, cani: false, bar: true,
+        note: 'La più vicina alla villa (1,8 km). Sabbia bianca nella baia di Stagnolu. Accesso attraverso il camping Golfo di Sogno (oltre 1 ora è a pagamento). Cani: da verificare in loco.',
         addr: 'Golfo di Sogno Porto-Vecchio',
     },
     {
         nome: 'Spiaggia di Cala Rossa',
-        km: 3, libera: true, cani: false, bar: true,
+        km: 4, libera: true, cani: false, bar: true,
         note: 'Baia elegante con pineta, stabilimenti balneari e il Ranch\'O Plage in riva al mare.',
         addr: 'Plage de Cala Rossa Lecci Porto-Vecchio',
     },
