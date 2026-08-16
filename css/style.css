@@ -374,19 +374,23 @@ html, body {
     box-shadow: var(--shadow);
 }
 
+.fuel-grid-4 {
+    grid-template-columns: 1.1fr 1fr 1fr 1fr;
+}
+
 .fuel-header {
     background: var(--primary);
     color: white;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
-    padding: 10px 12px;
+    padding: 10px 6px;
     text-align: center;
 }
 
 .fuel-row-label {
     background: var(--card);
-    padding: 14px 12px;
-    font-size: 14px;
+    padding: 14px 8px;
+    font-size: 13px;
     font-weight: 600;
     color: var(--text);
     display: flex;
@@ -396,8 +400,8 @@ html, body {
 
 .fuel-row-val {
     background: var(--card);
-    padding: 14px 12px;
-    font-size: 18px;
+    padding: 14px 4px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--text);
     text-align: center;
