@@ -110,6 +110,40 @@ const CHECKLIST_DATA = [
     },
 ];
 
+// ===== AGGIUNTE DI DEFAULT (importate dalla checklist Les Issambres) =====
+const DEFAULT_CUSTOM_ITEMS = [
+    { id: 'seed_1',  text: 'Pompa ciambelloni' },
+    { id: 'seed_2',  text: 'Chiudere rubinetto acqua' },
+    { id: 'seed_3',  text: 'Spegnere frigo' },
+    { id: 'seed_4',  text: 'Gestione deumidificatore' },
+    { id: 'seed_5',  text: 'Regalo per François' },
+    { id: 'seed_6',  text: 'Sacco dei gatti' },
+    { id: 'seed_7',  text: 'Occhiali da sole e da vista' },
+    { id: 'seed_8',  text: '100 € per Emma di acconto' },
+    { id: 'seed_9',  text: 'Tagliare le unghie ai gatti' },
+    { id: 'seed_10', text: 'Fire stick' },
+    { id: 'seed_11', text: 'Libro che sto leggendo' },
+    { id: 'seed_12', text: 'Sistemare cibo, acqua e sabbia gatti' },
+    { id: 'seed_13', text: 'Verificare frigorifero contenuto' },
+    { id: 'seed_14', text: 'Sistemare canna dell\'acqua e sistemare idropulitrice' },
+    { id: 'seed_15', text: 'Batteria telecomandi antifurto' },
+    { id: 'seed_16', text: 'Sistemare immondizia, azzerare e svuotare, mettere nei bidoni' },
+    { id: 'seed_17', text: 'Sistemare programma Meteo domus' },
+    { id: 'seed_18', text: 'Sacchetti cacca gatti' },
+    { id: 'seed_19', text: 'Sigarette' },
+    { id: 'seed_20', text: 'Acqua per viaggio' },
+    { id: 'seed_21', text: 'Sacco per gatti randagi' },
+    { id: 'seed_22', text: 'Medicine cane' },
+    { id: 'seed_23', text: 'Ipad' },
+    { id: 'seed_24', text: 'Pacchi Alexa da dire a Emma' },
+    { id: 'seed_25', text: 'Libro e carte sacchetto sedia' },
+    { id: 'seed_26', text: 'Ritirare ricette Emanuele' },
+    { id: 'seed_27', text: 'Ghiaccini' },
+    { id: 'seed_28', text: 'Borsa sul tavolo in cui mettere mio beauty con libro e stand per telefono' },
+    { id: 'seed_29', text: 'Blister' },
+    { id: 'seed_30', text: 'Tappeto' },
+];
+
 // ===== STATO =====
 function loadChecked() {
     try { return JSON.parse(localStorage.getItem('checklist') || '{}'); } catch { return {}; }
@@ -119,7 +153,11 @@ function saveChecked(checked) {
 }
 
 function loadCustomItems() {
-    try { return JSON.parse(localStorage.getItem('checklist_custom') || '[]'); } catch { return []; }
+    try {
+        const raw = localStorage.getItem('checklist_custom');
+        if (raw === null) return DEFAULT_CUSTOM_ITEMS.slice();
+        return JSON.parse(raw);
+    } catch { return DEFAULT_CUSTOM_ITEMS.slice(); }
 }
 function saveCustomItems(items) {
     localStorage.setItem('checklist_custom', JSON.stringify(items));
