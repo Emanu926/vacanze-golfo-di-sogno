@@ -15,6 +15,10 @@ const GIORNI_BREVI = ['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
 const APERITIVI = [
     { nome: 'Da Mare by Sea Lounge', luogo: 'Palombaggia', addr: 'Da Mare Sea Lounge Plage de Palombaggia Porto-Vecchio', tel: '', note: 'Sunset lounge con DJ set su Palombaggia, dalle 15 alle 20 in agosto · ~10 km' },
     { nome: 'Bar Plage',             luogo: 'Santa Giulia', addr: 'Bar Plage Santa Giulia Porto-Vecchio',                  tel: '', note: 'Cucina mediterranea vista baia di Santa Giulia · ~12 km' },
+    { nome: 'L\'Othello',            luogo: 'centro storico', addr: 'L\'Othello Porto-Vecchio',                            tel: '', note: 'Primo cocktail e absinthe bar della città, retrò e vivace · ~8 km' },
+    { nome: 'Le Point de Vue',       luogo: 'centro storico', addr: 'Le Point de Vue Porto-Vecchio',                       tel: '', note: 'Sotto il municipio, vista sul golfo, cocktail a buon prezzo · ~8 km' },
+    { nome: 'Le Patio',              luogo: 'centro storico', addr: 'Le Patio Porto-Vecchio',                              tel: '', note: 'Bar all\'aperto in un vicolo del centro storico, aperitivo intimo · ~8 km' },
+    { nome: 'Bar Le Vinyle',         luogo: 'centro storico', addr: 'Bar Le Vinyle Porto-Vecchio',                         tel: '', note: 'Atmosfera calda, musica dal vivo, salumi · ~8 km' },
 ];
 
 const RISTORANTI = [
@@ -24,6 +28,11 @@ const RISTORANTI = [
     { nome: 'Golfo Di Sogno',   luogo: 'Ogliastraccio', km: 1,  cani: false, tel: '', addr: 'Golfo Di Sogno Ogliastraccio Porto-Vecchio',    note: 'Fronte spiaggia, sulla strada per Cala Rossa. Buona accoglienza, recensioni positive.' },
     { nome: 'Ranch\'O Plage',   luogo: 'Cala Rossa',    km: 4,  cani: false, tel: '', addr: 'Ranch\'O Plage Cala Rossa Lecci Porto-Vecchio', note: 'Pranzo e cena in riva al mare, bar e gelati.' },
     { nome: 'Costa Marina',     luogo: 'Palombaggia',   km: 10, cani: false, tel: '', addr: 'Costa Marina Palombaggia Porto-Vecchio',        note: 'Vista sulla spiaggia di Palombaggia, cucina francese e pizza al forno a legna.' },
+    { nome: 'Ristorante Terramea', luogo: 'Route de Palombaggia', km: 9, cani: false, tel: '', addr: 'Ristorante Terramea Route de Palombaggia Porto-Vecchio', note: 'Vista mare e vegetazione lussureggiante sulla route de Palombaggia.' },
+    { nome: 'Le Belvédère',        luogo: 'Porto-Vecchio',        km: 8, cani: false, tel: '', addr: 'Le Belvédère Porto-Vecchio',                              note: 'Vista mozzafiato sul mare, cucina raffinata.' },
+    { nome: 'Les Jardins De La Paresse', luogo: 'città vecchia', km: 8, cani: false, tel: '', addr: 'Les Jardins De La Paresse Porto-Vecchio', note: 'Pizzeria/ristorante nel cuore della città vecchia, vista sul porto.' },
+    { nome: 'Tropicana',           luogo: 'Porto-Vecchio',        km: 8, cani: false, tel: '', addr: 'Tropicana Porto-Vecchio',                                 note: 'Cucina francese, atmosfera accogliente.' },
+    { nome: 'Casa del Mar',        luogo: 'Porto-Vecchio',        km: 8, cani: false, tel: '', addr: 'Casa del Mar Porto-Vecchio',                               note: 'Ristorante stellato, chef Fabio Bragagnolo, cucina corsa e italiana creativa — occasione speciale.' },
 ];
 
 const SUPERMERCATI = [
@@ -36,6 +45,9 @@ const SUPERMERCATI = [
 const NEGOZI = [
     { cat: '🐟 Pescheria',  nome: 'Poissonnerie Calypso',    luogo: 'Porto-Vecchio',      addr: 'Calypso Avenue Georges-Pompidou Porto-Vecchio',            tel: '', note: '~8 km' },
     { cat: '🥩 Macelleria', nome: 'Boucherie des Éleveurs',  luogo: 'Les Quatre Chemins', addr: 'Boucherie des Éleveurs Avenue de Bastia Porto-Vecchio',   tel: '', note: '~9 km' },
+    { cat: '🥦 Frutta e verdura', nome: 'Fratani Michel',    luogo: 'Lecci',              addr: 'Fratani Michel Villa Les Chenes Verts Lecci',              tel: '', note: 'Il più vicino alla villa, stessa zona di Lecci/Golfo di Sogno.' },
+    { cat: '🥖 Panetteria', nome: 'Boulangerie Pietri',       luogo: 'Suariccia, Porto-Vecchio', addr: 'Boulangerie Pietri Rue du 9 Septembre 1943 Porto-Vecchio', tel: '', note: '~8 km' },
+    { cat: '🥖 Panetteria', nome: 'Boulangerie Patisserie Moderne', luogo: 'Poretta, Porto-Vecchio', addr: 'Boulangerie Patisserie Moderne Rue Jérôme Carcopino Porto-Vecchio', tel: '', note: '~9 km' },
 ];
 
 const MALTEMPO = [

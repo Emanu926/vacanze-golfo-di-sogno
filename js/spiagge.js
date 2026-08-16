@@ -23,6 +23,18 @@ const SPIAGGE = [
         note: 'Baia chiusa e acqua bassissima, ideale famiglie. Cani al guinzaglio ammessi tutto l\'anno per deroga comunale — verificare i cartelli in loco.',
         addr: 'Plage de Santa Giulia Porto-Vecchio',
     },
+    {
+        nome: 'Spiaggia di Rondinara',
+        km: 20, libera: true, cani: false, bar: true,
+        note: 'Baia perfetta a ferro di cavallo, acqua turchese, spesso citata tra le più belle d\'Europa. Da Porto-Vecchio ~11 km poi D158. Molto frequentata in agosto, parcheggio a pagamento.',
+        addr: 'Plage de Rondinara Corse',
+    },
+    {
+        nome: 'Spiaggia di Piantarella',
+        km: 32, libera: true, cani: false, bar: false,
+        note: 'Vicino Bonifacio, vista sulle isole, sito archeologico romano, molto nota per windsurf e kitesurf. Leggermente oltre i 30 km ma spesso inclusa in una gita di giornata a Bonifacio.',
+        addr: 'Plage de Piantarella Bonifacio',
+    },
 ];
 
 function initSpiagge() {

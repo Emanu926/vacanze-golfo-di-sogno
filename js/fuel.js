@@ -1,6 +1,7 @@
 // ===== CARBURANTE =====
 // Italia:  API community su dati MIMIT — media lungo tragitto Castronno→Ventimiglia
 // Francia: API open data governo francese — media lungo tragitto confine→Nizza (imbarco traghetto)
+// Corsica: stessa API governo francese — media intorno a Porto-Vecchio/Golfo di Sogno
 
 // Punti lungo il tragitto IT: Castronno → Milano → Alessandria → Savona → Imperia → Ventimiglia
 const IT_WAYPOINTS = [
@@ -18,23 +19,32 @@ const FR_WAYPOINTS = [
     [43.78, 7.50],   // Menton
     [43.70, 7.27],   // Nizza
 ];
+
+// Punti in Corsica: Porto-Vecchio centro/Poretta → Golfo di Sogno/Lecci
+const CO_WAYPOINTS = [
+    [41.5912, 9.2795],  // Porto-Vecchio centro
+    [41.6100, 9.3000],  // Lecci / Golfo di Sogno
+];
+
 const FR_API_BASE = 'https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets'
     + '/prix-des-carburants-en-france-flux-instantane-v2/records';
 
 async function fetchFuelPrices() {
-    const [fr, itG, itB] = await Promise.allSettled([
-        fetchFrance(),
+    const [fr, co, itG, itB] = await Promise.allSettled([
+        fetchFranceZone(FR_WAYPOINTS),
+        fetchFranceZone(CO_WAYPOINTS),
         fetchItalyFuel('gasolio'),
         fetchItalyFuel('benzina')
     ]);
 
-    const frData = fr.status  === 'fulfilled' ? fr.value  : null;
+    const frData = fr.status === 'fulfilled' ? fr.value : null;
+    const coData = co.status === 'fulfilled' ? co.value : null;
     const itData = (itG.status === 'fulfilled' && itB.status === 'fulfilled')
         ? { gazole: itG.value, sp95: itB.value }
         : null;
 
-    renderFuelPage(frData, itData);
-    renderFuelWidget(frData);
+    renderFuelPage(itData, frData, coData);
+    renderFuelWidget(coData);
 }
 
 // ===== FETCH ITALIA =====
@@ -51,10 +61,10 @@ async function fetchItalyFuel(tipo) {
     return avg(prezzi);
 }
 
-// ===== FETCH FRANCIA =====
-async function fetchFrance() {
+// ===== FETCH FRANCIA / CORSICA (stessa API, waypoint diversi) =====
+async function fetchFranceZone(waypoints) {
     const results = await Promise.allSettled(
-        FR_WAYPOINTS.map(([lat, lon]) => {
+        waypoints.map(([lat, lon]) => {
             const where = encodeURIComponent(`distance(geom,geom'POINT(${lon} ${lat})',15000m)`);
             return fetch(`${FR_API_BASE}?where=${where}&limit=15`)
                 .then(r => r.json());
@@ -68,22 +78,22 @@ async function fetchFrance() {
     return { gazole, sp95 };
 }
 
-// ===== WIDGET DASHBOARD =====
-function renderFuelWidget(fr) {
+// ===== WIDGET DASHBOARD ===== (mostra Corsica: è il prezzo rilevante durante il soggiorno)
+function renderFuelWidget(co) {
     const el  = document.getElementById('dash-fuel-val');
     const sub = document.getElementById('dash-fuel-sub');
     if (!el) return;
-    if (!fr?.gazole) { el.textContent = '—'; if (sub) sub.textContent = 'non disponibile'; return; }
-    el.textContent = '€ ' + fr.gazole.toFixed(3);
-    if (sub) sub.textContent = 'gasolio Francia';
+    if (!co?.gazole) { el.textContent = '—'; if (sub) sub.textContent = 'non disponibile'; return; }
+    el.textContent = '€ ' + co.gazole.toFixed(3);
+    if (sub) sub.textContent = 'gasolio Corsica';
 }
 
 // ===== PAGINA INFO =====
-function renderFuelPage(fr, it) {
+function renderFuelPage(it, fr, co) {
     const el = document.getElementById('fuel-section');
     if (!el) return;
 
-    if (!fr && !it) {
+    if (!it && !fr && !co) {
         el.innerHTML = `<div class="fuel-error">
             ⚠️ Prezzi non disponibili. Verifica la connessione.<br><br>
             <button class="fuel-refresh" onclick="fetchFuelPrices()">🔄 Riprova</button>
@@ -94,33 +104,29 @@ function renderFuelPage(fr, it) {
     const now = new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
 
     const rows = [
-        { label: 'Gasolio', it: it?.gazole, fr: fr?.gazole },
-        { label: 'Benzina', it: it?.sp95,   fr: fr?.sp95   },
+        { label: 'Gasolio', it: it?.gazole, fr: fr?.gazole, co: co?.gazole },
+        { label: 'Benzina', it: it?.sp95,   fr: fr?.sp95,   co: co?.sp95   },
     ];
 
-    let html = `<div class="fuel-grid">
+    let html = `<div class="fuel-grid fuel-grid-4">
         <div class="fuel-header"></div>
         <div class="fuel-header">🇮🇹 Tragitto IT</div>
-        <div class="fuel-header">🇫🇷 Francia</div>`;
+        <div class="fuel-header">🇫🇷 Francia</div>
+        <div class="fuel-header">🇫🇷 Corsica</div>`;
 
     rows.forEach(row => {
-        const itVal = row.it ? '€ ' + row.it.toFixed(3) : '—';
-        const frVal = row.fr ? '€ ' + row.fr.toFixed(3) : '—';
-        const diff  = (row.it && row.fr) ? row.fr - row.it : null;
-        let badge = '';
-        if (diff !== null) {
-            if (diff > 0.01)       badge = '<span class="fuel-badge it">pieno in IT 👍</span>';
-            else if (diff < -0.01) badge = '<span class="fuel-badge fr">pieno in FR</span>';
-            else                   badge = '<span class="fuel-badge eq">equivalenti</span>';
-        }
-        html += `
-            <div class="fuel-row-label">${row.label}${badge}</div>
-            <div class="fuel-row-val ${diff !== null && diff > 0 ? 'best' : ''}">${itVal}</div>
-            <div class="fuel-row-val ${diff !== null && diff < 0 ? 'best' : ''}">${frVal}</div>`;
+        const vals = { it: row.it, fr: row.fr, co: row.co };
+        const min  = Math.min(...Object.values(vals).filter(v => v != null));
+        html += `<div class="fuel-row-label">${row.label}</div>`;
+        ['it', 'fr', 'co'].forEach(key => {
+            const v = vals[key];
+            const isBest = v != null && v === min;
+            html += `<div class="fuel-row-val ${isBest ? 'best' : ''}">${v ? '€ ' + v.toFixed(3) : '—'}</div>`;
+        });
     });
 
     html += `</div>
-        <div class="fuel-note">IT: media self-service (VA→MI→AL→SV→IM→Ventimiglia) · FR: media sul tragitto (Menton→Nizza) · ${now}</div>
+        <div class="fuel-note">IT: media self-service (VA→MI→AL→SV→IM→Ventimiglia) · FR: media sul tragitto (Menton→Nizza) · Corsica: media Porto-Vecchio/Golfo di Sogno · ${now}</div>
         <button class="fuel-refresh" onclick="fetchFuelPrices()">🔄 Aggiorna</button>
         <a href="https://maps.google.com/?q=stazione+di+servizio+vicino+a+me" target="_blank" class="fuel-maps-btn">🗺 Trova distributore vicino</a>`;
 
